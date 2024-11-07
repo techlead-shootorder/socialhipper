@@ -17,6 +17,9 @@ const buttonVariants = cva(
         orange: "px-4 py-2 text-white bg-[#FF4500] rounded-full hover:bg-[#FF4500]",
         custom: 
           "bg-white text-black dark:bg-black dark:text-white hover:text-orange-500 active:text-orange-500 border-0 rounded-full",
+        
+        customGray: 
+          "bg-[#f3f1f1] text-black dark:bg-black dark:text-white hover:text-orange-500 active:text-orange-500 border-0 rounded-full",
       },
       size: {
         default: "h-9 px-4 py-2",
