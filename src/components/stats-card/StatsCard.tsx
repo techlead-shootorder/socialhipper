@@ -79,7 +79,7 @@ export default function StatsCards() {
             <CardContent>
               <div className="flex items-center justify-start gap-2">
                 <IconComponent className="text-gray-400 text-xl" />
-                <p className="text-[20px] leading-[24px] font-semibold  text-gray-800 mb-1">
+                <p className="text-[20px] leading-[24px] font-semibold  text-gray-800 dark:text-white mb-1">
                   {stat.title}
                 </p>
               </div>

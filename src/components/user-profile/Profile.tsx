@@ -68,7 +68,7 @@ const UserProfile = () => {
         {/* Stats Cards */}
         <div className="flex gap-4 mt-4">
           {/* Followers */}
-          <div className="flex-1 p-4 shadow-md text-left rounded-xl">
+          <div className="flex-1 p-4 dark:bg-[#1A1919] shadow-md text-left rounded-xl">
             <div className="flex items-center justify-start gap-2">
               <p className="text-2xl font-bold">
                 561 <span className="text-lg text-green-500">+1 (0.2%)</span>
@@ -79,7 +79,7 @@ const UserProfile = () => {
             </p>
           </div>
           {/* Posts */}
-          <div className="flex-1 p-4 shadow-md text-left rounded-xl">
+          <div className="flex-1 p-4 dark:bg-[#1A1919] shadow-md text-left rounded-xl">
             <div className="flex items-center justify-start gap-2">
               <p className="text-2xl font-bold">
                 153 <span className="text-lg text-green-500">+1 (0.2%)</span>
@@ -90,7 +90,7 @@ const UserProfile = () => {
             </p>
           </div>
           {/* Engagement */}
-          <div className="flex-1 p-4 shadow-md rounded-xl text-left">
+          <div className="flex-1 p-4 dark:bg-[#1A1919] shadow-md rounded-xl text-left">
             <div className="flex items-center justify-start gap-2">
               <p className="text-2xl font-bold">
                 14.71% <span className="text-lg text-green-500">+1 (0.2%)</span>
