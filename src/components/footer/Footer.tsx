@@ -2,7 +2,7 @@ import { FaLinkedin, FaFacebook, FaTwitter } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-black text-gray-700 dark:text-white border-t border-gray-200 py-10 mt-8">
+    <footer className="bg-white dark:bg-black text-gray-700  md:px-20 dark:text-white border-t border-gray-200 py-10 mt-8">
       <div className="container mx-auto px-4 grid md:grid-cols-4 gap-10">
         {/* Product Section */}
         <div>
@@ -39,7 +39,7 @@ export default function Footer() {
         </div>
 
         {/* Subscribe Section */}
-        <div className="bg-gray-100 dark:bg-[#493e3e] p-6 rounded-lg">
+        <div className="bg-gray-100 dark:bg-[#493e3e] p-4 rounded-lg">
           <h3 className="font-semibold text-lg mb-4">Subscribe</h3>
           <form className="flex items-center">
             <input
