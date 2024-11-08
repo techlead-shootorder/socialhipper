@@ -20,7 +20,7 @@ const UserProfile = () => {
     <div className="dark:bg-[#2E2B2B] bg-white p-6 relative py-16 rounded-[25px] md:mx-20 mt-16 shadow-md flex flex-col md:flex-row gap-6 md:gap-12">
       {/* Top Corner Buttons */}
       <div className="absolute top-[-36px] right-10 flex gap-2">
-        <Button variant="ghost" className="bg-[#E1E1E1] dark:bg-black rounded-b-none" >
+        <Button variant="ghost" className="bg-[#E1E1E1] dark:bg-black rounded-b-none">
           <AiOutlineSwap />
           Compare
         </Button>
@@ -38,11 +38,10 @@ const UserProfile = () => {
         />
 
         <Button variant="ghost" className="dark:bg-white rounded-b-none">
-          <img src="/images/download.svg" alt="svg download"/>
+          <img src="/images/download.svg" alt="svg download" />
         </Button>
       </div>
 
-      {/* Rest of the component code */}
       {/* Left Section */}
       <div className="flex flex-col justify-around gap-8 md:w-2/5">
         {/* Profile Image and Info */}
@@ -68,14 +67,14 @@ const UserProfile = () => {
             <p className="text-sm text-black font-semibold mt-1 mb-2 dark:text-white">
               Digital Marketer | Content Creator
             </p>
-            <p className="text-xs text-gray-500 dark:text-white ">
+            <p className="text-xs text-gray-500 dark:text-white">
               Founder @shortcoder | #DigitalMarketing Consultant, #SocialMedia
               Expert, #Influencer
             </p>
           </div>
         </div>
         {/* Social Media Icons */}
-        <div className="flex gap-7">
+        <div className="flex gap-7 flex-wrap">
           <div className="flex gap-4 text-[#4F4F4F]">
             <div className="p-2 rounded-full border-[1px] border-[#4F4F4F] bg-transparent dark:bg-gray-200">
               <MdPerson size={20} />
@@ -97,7 +96,7 @@ const UserProfile = () => {
         {/* Tracking Info and Claim Button */}
         <div className="flex justify-between items-center">
           <p className="text-sm text-black dark:text-white leading-[14.52px] font-[400] flex items-center gap-2">
-            <img src="/images/square.svg"  alt="svg square" />
+            <img src="/images/square.svg" alt="svg square" />
             Tracked since Sep 23, 2024. Updated 7 hours ago.
           </p>
           <Button variant="orange">
@@ -106,7 +105,7 @@ const UserProfile = () => {
         </div>
 
         {/* Stats Cards */}
-        <div className="flex gap-4 mt-4">
+        <div className="flex gap-4 mt-4 flex-wrap md:flex-nowrap">
           {/* Followers */}
           <div className="flex-1 p-4 dark:bg-[#1A1919] shadow-md text-left rounded-xl">
             <div className="flex items-center justify-start gap-2">

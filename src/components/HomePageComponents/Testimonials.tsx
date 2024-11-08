@@ -93,7 +93,7 @@ const TestimonialSection = () => {
   return (
     <div className=" py-10">
       <h2 className="text-[50px] font-medium text-center mb-12">
-        Over <span className="text-black font-bold">173.3M</span> influencers in the
+        Over <span className="text-black font-bold dark:text-white">173.3M</span> influencers in the
         database
       </h2>
 
@@ -126,7 +126,7 @@ const TestimonialSection = () => {
                   <div className="text-gray-500">{testimonial.username}</div>
                 </div>
               </div>
-              <div className="py-10 text-center bg-white w-full flex items-center justify-between px-4 rounded-b-xl rounded-l-xl ">
+              <div className="py-10 text-center bg-white w-full flex items-center justify-between px-4 rounded-b-xl  ">
                 <p className="text-sm font-semibold text-black">
                   {testimonial.subscribers} <br />
                   Subscribers
@@ -176,7 +176,7 @@ const TestimonialSection = () => {
                   <div className="text-gray-500">{testimonial.username}</div>
                 </div>
               </div>
-              <div className="py-10 text-center bg-white w-full flex items-center justify-between px-4 rounded-b-xl rounded-l-xl ">
+              <div className="py-10 text-center bg-white w-full flex items-center justify-between px-4 rounded-b-xl ">
                 <p className="text-sm font-semibold text-black">
                   {testimonial.subscribers} <br />
                   Subscribers

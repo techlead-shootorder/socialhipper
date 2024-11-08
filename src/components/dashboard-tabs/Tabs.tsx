@@ -17,7 +17,7 @@ const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
 
   const handleTabClick = (tab: Tab) => {
     setSelectedTab(tab);
-    onTabSelect(tab); // Notify the parent component of the selected tab
+    onTabSelect(tab);
   };
 
   const toggleDropdown = () => {
@@ -25,9 +25,9 @@ const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
   };
 
   return (
-    <div className="flex items-center flex-wrap justify-between p-4 mt-12 rounded-lg bg-white md:mx-20 dark:bg-[#2E2B2B] space-x-4 relative">
+    <div className="md:flex md:items-center md:flex-wrap md:justify-between p-4 mt-12 rounded-lg bg-white md:mx-20 dark:bg-[#2E2B2B] relative space-y-4 md:space-y-0 md:space-x-4">
       {/* Social Media Buttons */}
-      <div className="flex space-x-4">
+      <div className="flex space-x-4 flex-wrap md:flex-nowrap md:space-x-4">
         <Button variant="orange" className="flex items-center rounded-[15px]">
           <FaInstagram /> Instagram
         </Button>
@@ -43,7 +43,7 @@ const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
       </div>
 
       {/* Tab Buttons */}
-      <div className="flex items-center space-x-4">
+      <div className="flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-4">
         <Button
           variant="custom"
           className={`font-bold ${selectedTab === "overview" ? "text-orange-600" : ""}`}

@@ -4,7 +4,7 @@ const Projections = () => {
       <div className="container  py-12">
         <h2 className="text-xl text-center font-bold">Future Projections</h2>
         <p className="text-center">
-          This is where we’ll display charts and future projections.
+          This is where well display charts and future projections.
         </p>
 
         {/* Grid for images */}
