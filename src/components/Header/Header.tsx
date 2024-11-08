@@ -26,7 +26,7 @@ export default function Header() {
 
   return (
     <header
-      className={`flex flex-col md:flex-row items-center justify-between p-4 md:px-20 shadow-xl dark:border-gray-700 ${
+      className={`flex flex-col md:flex-row items-center justify-between p-4 md:px-20 shadow-lg dark:border-gray-700 ${
         darkMode ? "bg-[#2E2B2B]" : "bg-white"
       } dark:bg-[#2E2B2B]`}
     >
