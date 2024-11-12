@@ -41,8 +41,8 @@ const Banner = () => {
             <Image
               src="/images/top-image.png"
               alt="Analytics Overview"
-              width={700} // Adjust width for appropriate scaling
-              height={250} // Adjust height to control image size
+              width={900} // Adjust width for appropriate scaling
+              height={400} // Adjust height to control image size
               className="rounded-lg shadow-lg"
             />
           </div>

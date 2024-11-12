@@ -156,7 +156,7 @@ const TestimonialSection = () => {
                     <div className="text-gray-500">{testimonial.username}</div>
                   </div>
                 </div>
-                <div className="py-10 text-center bg-white w-full flex items-center justify-between px-4 rounded-b-xl">
+                <div className="py-10 text-left bg-white w-full flex items-center justify-between px-4 rounded-b-xl">
                   <div className="flex flex-col items-center">
                     {" "}
                     <p className="text-sm font-semibold flex items-center gap-3 text-black">
@@ -222,7 +222,7 @@ const TestimonialSection = () => {
                     <div className="text-gray-500">{testimonial.username}</div>
                   </div>
                 </div>
-                <div className="py-10 text-center bg-white w-full flex items-center justify-between px-4 rounded-b-xl">
+                <div className="py-10 text-left bg-white w-full flex items-center justify-between px-4 rounded-b-xl">
                   <div className="flex flex-col items-center">
                     {" "}
                     <p className="text-sm font-semibold flex items-center gap-3 text-black">

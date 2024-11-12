@@ -4,6 +4,7 @@ import { FaMoon, FaSun, FaChevronDown, FaBars } from "react-icons/fa";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { RiSearch2Line } from "react-icons/ri";
+import Link from "next/link";
 
 export default function Header() {
   const [darkMode, setDarkMode] = useState(false);
@@ -33,15 +34,23 @@ export default function Header() {
       {/* Logo and Hamburger Icon Row */}
       <div className="flex items-center justify-between w-full md:w-auto">
         <div>
-          <img
-            src="images/logo-original.png"
-            alt="Social Hipper Logo"
-            className="h-7 md:w-auto object-contain"
-          />
+          <Link href="/">
+            {" "}
+            <img
+              src="images/logo-original.png"
+              alt="Social Hipper Logo"
+              className="h-7 md:w-auto object-contain"
+            />
+          </Link>
         </div>
 
         <div className="relative w-3/4 ml-8 hidden md:block">
-          <Input type="text" placeholder="Search Profile" className="w-full" />
+          <Input
+            type="text"
+            placeholder="Search Profile"
+            className="w-full"
+            variant="default"
+          />
           <div className="absolute left-0 top-0 flex items-center justify-center w-10 h-10 bg-[#FF4500] rounded-l-full">
             <RiSearch2Line className="w-5 h-5 text-white" />
           </div>
@@ -85,14 +94,14 @@ export default function Header() {
 
       {/* Desktop Navigation */}
       <nav className="hidden md:flex items-center space-x-6">
-        <a
-          href="#contributors"
+        <Link
+          href="/top-contributors"
           className={`hover:text-red-500 ${
             darkMode ? "text-gray-300" : "text-gray-800"
           }`}
         >
           Top Contributors
-        </a>
+        </Link>
         <a
           href="#pricing"
           className={`hover:text-red-500 ${
@@ -149,9 +158,9 @@ export default function Header() {
             ✕
           </button>
           <nav className="flex flex-col space-y-4 mt-8">
-            <a href="#contributors" className="hover:text-gray-400">
+            <Link href="/top-contributors" className="hover:text-gray-400">
               Top Contributors
-            </a>
+            </Link>
             <a href="#pricing" className="hover:text-gray-400 border-b pb-2">
               Pricing
             </a>
