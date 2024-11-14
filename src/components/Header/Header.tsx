@@ -37,7 +37,7 @@ export default function Header() {
           <Link href="/">
             {" "}
             <img
-              src="images/logo-original.png"
+              src="/images/logo-original.png"
               alt="Social Hipper Logo"
               className="h-7 md:w-auto object-contain"
             />
@@ -63,7 +63,6 @@ export default function Header() {
           <FaBars />
         </button>
       </div>
-
       {/* Search and Dark Mode Toggle for Mobile */}
       <div className="flex items-center w-full mt-4 md:hidden space-x-2">
         <div className="relative w-3/4">
@@ -144,7 +143,9 @@ export default function Header() {
             </span>
           </label>
         </div>
-        <Button variant="orange">Sign Up</Button>
+        <Link href={"/signup"} className="hover:text-red-500">
+          <Button variant="orange">Sign Up</Button>
+        </Link>
       </nav>
 
       {/* Mobile Menu */}
@@ -171,7 +172,9 @@ export default function Header() {
               </select>
               <FaChevronDown className="absolute right-2 text-gray-400" />
             </div>
-            <Button variant="orange">Sign Up</Button>
+            <Link href={"/signup"}>
+              <Button variant="orange">Sign Up</Button>
+            </Link>
           </nav>
         </div>
       )}

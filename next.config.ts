@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+import { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  webpack(config, { isServer }: { isServer: boolean }) {
+    if (!isServer) {
+      config.devtool = 'source-map'; // This ensures source maps are generated in development
+    }
+    return config;
+  },
 };
 
 export default nextConfig;

@@ -1,7 +1,7 @@
 import ImportantUpdate from "@/components/ImportantUpdate/ImportantUpdate";
-import InfluencerTable from "@/components/top-contributors/InfluencerTable";
+import ConditionalTable from "@/components/top-contributors/ConditionalTable";
 import Message from "@/components/top-contributors/Message";
-import RowTable from "@/components/top-contributors/RowTable";
+
 import React from "react";
 
 const page = () => {
@@ -9,8 +9,7 @@ const page = () => {
     <div>
       <ImportantUpdate />
       <Message />
-      <InfluencerTable />
-      <RowTable/>
+      <ConditionalTable />
     </div>
   );
 };
