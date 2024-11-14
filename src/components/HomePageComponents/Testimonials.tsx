@@ -127,9 +127,9 @@ const TestimonialSection = () => {
           spaceBetween={32}
           slidesPerView="auto"
           loop={true}
-          speed={5000}
+          speed={15000}
           autoplay={{
-            delay: 10,
+            delay: 1,
             disableOnInteraction: false,
             reverseDirection: false, // For left-to-right scroll
           }}
@@ -193,9 +193,9 @@ const TestimonialSection = () => {
           spaceBetween={32}
           slidesPerView="auto"
           loop={true}
-          speed={5000}
+          speed={15000}
           autoplay={{
-            delay: 10,
+            delay: 1,
             disableOnInteraction: false,
             reverseDirection: true, // For right-to-left scroll
           }}
