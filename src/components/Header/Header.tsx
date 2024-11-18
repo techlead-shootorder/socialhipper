@@ -5,8 +5,11 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { RiSearch2Line } from "react-icons/ri";
 import Link from "next/link";
+import { UserButton } from "@clerk/nextjs";
+import { useAuthContext } from "../../lib/Context/AuthContext";
 
 export default function Header() {
+  const { authState } = useAuthContext();
   const [darkMode, setDarkMode] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -27,7 +30,7 @@ export default function Header() {
 
   return (
     <header
-      className={`flex flex-col md:flex-row items-center justify-between p-4 md:px-20 shadow-lg dark:border-gray-700 ${
+      className={`w-full flex flex-col md:flex-row items-center justify-between p-4 md:px-20 shadow-lg dark:border-gray-700 z-20 ${
         darkMode ? "bg-[#2E2B2B]" : "bg-white"
       } dark:bg-[#2E2B2B]`}
     >
@@ -43,7 +46,6 @@ export default function Header() {
             />
           </Link>
         </div>
-
         <div className="relative w-3/4 ml-8 hidden md:block">
           <Input
             type="text"
@@ -143,14 +145,18 @@ export default function Header() {
             </span>
           </label>
         </div>
-        <Link href={"/signup"} className="hover:text-red-500">
-          <Button variant="orange">Sign Up</Button>
-        </Link>
+        {authState.isSignedIn  ? (
+          <UserButton />
+        ) : (
+          <Link href={"/signup"} className="hover:text-red-500">
+            <Button variant="orange">Sign Up</Button>
+          </Link>
+        )}
       </nav>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-y-0 right-0 w-3/4 bg-black text-white p-6 transform transition-transform duration-300 ease-in-out md:hidden">
+        <div className="fixed inset-y-0 right-0 w-3/4 bg-black text-white p-6 transform transition-transform duration-300 ease-in-out md:hidden z-20">
           <button
             onClick={handleMenuToggle}
             aria-label="Close menu"
@@ -172,9 +178,13 @@ export default function Header() {
               </select>
               <FaChevronDown className="absolute right-2 text-gray-400" />
             </div>
-            <Link href={"/signup"}>
-              <Button variant="orange">Sign Up</Button>
-            </Link>
+            {authState.isSignedIn  ? (
+              <UserButton />
+            ) : (
+              <Link href={"/signup"} className="hover:text-red-500">
+                <Button variant="orange">Sign Up</Button>
+              </Link>
+            )}
           </nav>
         </div>
       )}

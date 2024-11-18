@@ -1,5 +1,3 @@
-// components/ConditionalTable.tsx
-
 "use client";
 import { useState } from "react";
 import InfluencerTable from "./InfluencerTable";
@@ -28,13 +26,13 @@ const ConditionalTable = () => {
   return (
     <div className="bg-white dark:bg-[#2E2B2B] rounded-[15px] p-4 md:mx-20 my-8">
       {/* Filter Dropdowns */}
-      <div className="flex items-center gap-4 mb-4">
+      <div className="flex flex-wrap items-center gap-4 mb-4">
         {/* Country Select */}
-        <div className="relative">
+        <div className="relative w-full sm:w-auto">
           <select
             value={filters.country}
             onChange={(e) => handleFilterChange("country", e.target.value)}
-            className="px-4 py-2 bg-[#F3F1F1] dark:bg-[#4A4A4A] dark:text-white rounded-[15px]"
+            className="px-4 py-2 w-full sm:w-auto bg-[#F3F1F1] dark:bg-[#4A4A4A] dark:text-white rounded-[15px] mb-4 sm:mb-0"
           >
             <option value="">Country</option>
             <option value="Portugal">Portugal</option>
@@ -45,11 +43,11 @@ const ConditionalTable = () => {
         </div>
 
         {/* City Select */}
-        <div className="relative">
+        <div className="relative w-full sm:w-auto">
           <select
             value={filters.city}
             onChange={(e) => handleFilterChange("city", e.target.value)}
-            className="px-4 py-2 bg-[#F3F1F1] dark:bg-[#4A4A4A] dark:text-white rounded-[15px]"
+            className="px-4 py-2 w-full sm:w-auto bg-[#F3F1F1] dark:bg-[#4A4A4A] dark:text-white rounded-[15px] mb-4 sm:mb-0"
           >
             <option value="">City</option>
             <option value="Lisbon">Lisbon</option>
@@ -60,11 +58,11 @@ const ConditionalTable = () => {
         </div>
 
         {/* Category Select */}
-        <div className="relative">
+        <div className="relative w-full sm:w-auto">
           <select
             value={filters.category}
             onChange={(e) => handleFilterChange("category", e.target.value)}
-            className="px-4 py-2 bg-[#F3F1F1] dark:bg-[#4A4A4A] dark:text-white rounded-[15px]"
+            className="px-4 py-2 w-full sm:w-auto bg-[#F3F1F1] dark:bg-[#4A4A4A] dark:text-white rounded-[15px] mb-4 sm:mb-0"
           >
             <option value="">Category</option>
             <option value="Sports">Sports</option>
@@ -75,13 +73,13 @@ const ConditionalTable = () => {
         </div>
 
         {/* Influencer Type Select */}
-        <div className="relative">
+        <div className="relative w-full sm:w-auto">
           <select
             value={filters.influencerType}
             onChange={(e) =>
               handleFilterChange("influencerType", e.target.value)
             }
-            className="px-4 py-2 bg-[#F3F1F1] dark:bg-[#4A4A4A] dark:text-white rounded-[15px]"
+            className="px-4 py-2 w-full sm:w-auto bg-[#F3F1F1] dark:bg-[#4A4A4A] dark:text-white rounded-[15px] mb-4 sm:mb-0"
           >
             <option value="">Influencer Type</option>
             <option value="Celebrity">Celebrity</option>
@@ -97,11 +95,11 @@ const ConditionalTable = () => {
           <div
             onClick={() => setShowInfluencerTable(!showInfluencerTable)}
             className={`relative w-14 h-7 rounded-full cursor-pointer transition-colors
-              ${showInfluencerTable ? "bg-blue-500" : "bg-gray-300 dark:bg-gray-600"}`}
+              ${showInfluencerTable ? "bg-[#FF4500]" : "bg-gray-300 dark:bg-gray-600"}`}
           >
             <div
               className={`absolute top-1 left-1 w-5 h-5 rounded-full transition-transform transform
-                ${showInfluencerTable ? "translate-x-7 bg-white" : "bg-blue-500 dark:bg-white"}`}
+                ${showInfluencerTable ? "translate-x-7 bg-white" : "bg-[#FF4500] dark:bg-white"}`}
             ></div>
           </div>
 

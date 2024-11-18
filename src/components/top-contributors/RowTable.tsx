@@ -78,14 +78,14 @@ const mockData: UserProfile[] = [
 
 export default function ProfileCard() {
   return (
-    <div className="space-y-8 mt-8 ">
+    <div className="space-y-8 mt-8">
       {mockData.map((user) => (
         <div
           key={user.id}
-          className="grid grid-cols-12 gap-20 items-center p-6 bg-white dark:bg-[#1A1919] rounded-[15px] shadow-md"
+          className="grid grid-cols-12 gap-6 md:gap-20 items-center p-6 bg-white dark:bg-[#1A1919] rounded-[15px] shadow-md"
         >
           {/* Profile Picture and Basic Info */}
-          <div className="col-span-2 flex flex-col items-center">
+          <div className="col-span-12 sm:col-span-2 flex flex-col items-center mb-4 sm:mb-0">
             <div className="relative">
               <img
                 src={user.profileImage}
@@ -104,8 +104,8 @@ export default function ProfileCard() {
             </div>
           </div>
 
-          {/* Statistics Section - Middle, occupies 7 columns */}
-          <div className="col-span-8 grid grid-cols-3 gap-4">
+          {/* Statistics Section - Middle, occupies 12 columns on mobile, 7 on larger screens */}
+          <div className="col-span-12 sm:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-4">
             {user.stats.map((stat, index) => (
               <div
                 key={index}
@@ -126,8 +126,8 @@ export default function ProfileCard() {
             ))}
           </div>
 
-          {/* Action Buttons - Right, occupies 3 columns */}
-          <div className="col-span-2 flex flex-col space-y-4">
+          {/* Action Buttons - Right, occupies 12 columns on mobile, 3 on larger screens */}
+          <div className="col-span-12 sm:col-span-2 flex flex-col space-y-4">
             <Button variant="orange" className="rounded-[15px]">
               Get Report
             </Button>

@@ -47,7 +47,7 @@ const SignUpForm: React.FC = () => {
       // Check if setActive is defined before calling it
       if (setActive && verificationResult?.createdSessionId) {
         await setActive({ session: verificationResult.createdSessionId });
-        router.push("/");
+        router.push("/dashboard");
       } else {
         console.error("Failed to set active session or session ID is missing.");
       }

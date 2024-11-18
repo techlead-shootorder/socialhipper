@@ -51,7 +51,7 @@ const HashTags = () => {
   return (
     <div className="grid gap-8 p-4 md:mx-20 md:grid-cols-4">
       {/* Top Content Section */}
-      <div className="col-span-2 p-4 bg-white dark:bg-[#2E2B2B] rounded-lg">
+      <div className="col-span-4 md:col-span-2 p-4 bg-white dark:bg-[#2E2B2B] rounded-lg">
         <h2 className="text-lg font-semibold mb-4">Your Top Content</h2>
         <div className="space-y-4">
           {topContentData.map((content) => (
@@ -90,7 +90,7 @@ const HashTags = () => {
       </div>
 
       {/* Best Performing #hashtags Section */}
-      <div className="p-4 bg-white dark:bg-[#2E2B2B] rounded-lg shadow">
+      <div className="p-4 bg-white dark:bg-[#2E2B2B] rounded-lg shadow col-span-4 md:col-span-1">
         <h2 className="text-lg font-semibold mb-4">Best Performing #hashtags</h2>
         <div className="space-y-2">
           {hashtags.map((tag, index) => (
@@ -105,7 +105,7 @@ const HashTags = () => {
       </div>
 
       {/* Best Performing @mentions Section */}
-      <div className="p-4 bg-white dark:bg-[#2E2B2B] rounded-lg shadow">
+      <div className="p-4 bg-white dark:bg-[#2E2B2B] rounded-lg shadow col-span-4 md:col-span-1">
         <h2 className="text-lg font-semibold mb-4">Best Performing @mention</h2>
         <div className="space-y-2">
           {mentions.map((mention, index) => (

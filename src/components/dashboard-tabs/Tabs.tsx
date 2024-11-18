@@ -4,6 +4,8 @@ import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { Button } from "../ui/button";
 import { FaXTwitter } from "react-icons/fa6";
 import { AiOutlineDown } from "react-icons/ai";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 type Tab = "overview" | "projections" | "engagement" | "media" | "influencer" | "social";
 
@@ -26,10 +28,26 @@ const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
 
   return (
     <div className="md:flex md:items-center md:flex-wrap md:justify-between p-4 mt-12 rounded-lg bg-white md:mx-20 dark:bg-[#2E2B2B] relative space-y-4 md:space-y-0 md:space-x-4">
-      {/* Social Media Buttons */}
-      <div className="flex space-x-4 flex-wrap md:flex-nowrap md:space-x-4">
+      {/* Show Social Media Icons only on Mobile */}
+      <div className="flex space-x-8 flex-wrap md:hidden">
         <Button variant="orange" className="flex items-center rounded-[15px]">
-          <FaInstagram /> Instagram
+          <FaInstagram />
+        </Button>
+        <Button className="flex items-center gap-2 bg-gray-200 text-black rounded-[15px]">
+          <FaXTwitter className="text-black" />
+        </Button>
+        <Button className="flex items-center gap-2 bg-gray-200 text-black rounded-[15px]">
+          <FaLinkedin className="text-black" />
+        </Button>
+        <Button className="flex items-center gap-2 bg-gray-200 text-black rounded-[15px]">
+          <FaYoutube className="text-black" />
+        </Button>
+      </div>
+
+      {/* Hide Social Media Icons on Desktop */}
+      <div className="hidden md:flex md:flex-wrap gap-2">
+        <Button variant="orange" className="flex items-center rounded-[15px] ">
+          <FaInstagram className="mr-2" /> Instagram
         </Button>
         <Button className="flex items-center gap-2 bg-gray-200 text-black rounded-[15px]">
           <FaXTwitter className="text-black" /> Twitter
@@ -42,8 +60,8 @@ const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
         </Button>
       </div>
 
-      {/* Tab Buttons */}
-      <div className="flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-4">
+      {/* Tab Buttons (Hidden on Mobile) */}
+      <div className="hidden md:flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-4">
         <Button
           variant="custom"
           className={`font-bold ${selectedTab === "overview" ? "text-orange-600" : ""}`}
@@ -100,6 +118,66 @@ const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
             </div>
           )}
         </div>
+      </div>
+
+      {/* Mobile Carousel */}
+      <div className="md:hidden">
+        <Swiper spaceBetween={12} slidesPerView={2}>
+          <SwiperSlide>
+            <Button
+              variant="custom"
+              className={`font-bold ${selectedTab === "overview" ? "text-orange-600" : ""}`}
+              onClick={() => handleTabClick("overview")}
+            >
+              Overview
+            </Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Button
+              variant="custom"
+              className={`font-bold ${selectedTab === "projections" ? "text-orange-600" : ""}`}
+              onClick={() => handleTabClick("projections")}
+            >
+              Future Projections
+            </Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Button
+              variant="custom"
+              className={`font-bold ${selectedTab === "engagement" ? "text-orange-600" : ""}`}
+              onClick={() => handleTabClick("engagement")}
+            >
+              Engagement Stats
+            </Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Button
+              variant="custom"
+              className={`font-bold ${selectedTab === "media" ? "text-orange-600" : ""}`}
+              onClick={() => handleTabClick("media")}
+            >
+              Media Stats
+            </Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Button
+              variant="custom"
+              className={`font-bold ${selectedTab === "influencer" ? "text-orange-600" : ""}`}
+              onClick={() => handleTabClick("influencer")}
+            >
+              Influencer Stats
+            </Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Button
+              variant="custom"
+              className={`font-bold ${selectedTab === "social" ? "text-orange-600" : ""}`}
+              onClick={() => handleTabClick("social")}
+            >
+              Social Stats
+            </Button>
+          </SwiperSlide>
+        </Swiper>
       </div>
     </div>
   );

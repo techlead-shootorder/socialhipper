@@ -113,7 +113,7 @@ const TestimonialSection = () => {
   ];
 
   return (
-    <div className="py-10">
+    <div className="py-24">
       <h2 className="text-[50px] font-medium text-center mb-12">
         Over{" "}
         <span className="text-black font-bold dark:text-white">173.3M</span>{" "}

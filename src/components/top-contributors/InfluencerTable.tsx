@@ -1,5 +1,3 @@
-// components/InfluencerTable.tsx
-
 "use client";
 import {
   Table,
@@ -119,7 +117,10 @@ const InfluencerTable = ({ filters }: InfluencerTableProps) => {
       </TableHeader>
       <TableBody>
         {filteredInfluencers.map((influencer, index) => (
-          <TableRow key={index} className="border-b border-gray-200 dark:border-gray-700">
+          <TableRow
+            key={index}
+            className="border-b border-gray-200 dark:border-gray-700"
+          >
             <TableCell className="font-bold text-[30px] leading-[36px] text-black dark:text-white p-4 text-center">
               {influencer.rank}
             </TableCell>
@@ -134,10 +135,12 @@ const InfluencerTable = ({ filters }: InfluencerTableProps) => {
               <div className="absolute top-4 left-[132px]">
                 <BsCheckCircleFill className="text-blue-500 w-4 h-4" />
               </div>
-              <span className="text-[20px] text-black dark:text-white">{influencer.name}</span>
+              <span className="text-[20px] text-black dark:text-white">
+                {influencer.name}
+              </span>
             </TableCell>
             <TableCell className="p-4 text-center">
-              <div className="flex gap-2 justify-center">
+              <div className="flex gap-2 justify-center flex-wrap">
                 {influencer.category.map((cat, i) => (
                   <span
                     key={i}

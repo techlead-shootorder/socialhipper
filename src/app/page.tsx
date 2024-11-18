@@ -6,9 +6,11 @@ import TestimonialSection from "@/components/HomePageComponents/Testimonials";
 export default function Home() {
   return (
     <>
+    
       <Banner />
       <TestimonialSection />
       <AboutHome />
+      
     </>
   );
 }
