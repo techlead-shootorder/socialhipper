@@ -1,9 +1,8 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import Tabs from "./Tabs";
 import UserProfile from "../user-profile/Profile";
-import Projections from "../user-profile/Projections";
-
+import StatsSection from "../dashboard-chart/Chart";
 
 const ParentComponent = () => {
   const [selectedTab, setSelectedTab] = useState("overview");
@@ -14,7 +13,7 @@ const ParentComponent = () => {
       case "overview":
         return <UserProfile />;
       case "projections":
-        return <Projections />;
+        return <StatsSection />;
       case "engagement":
         return <div>Engagement Stats Content</div>;
       case "media":
@@ -29,15 +28,15 @@ const ParentComponent = () => {
   };
 
   return (
-    <div>
-      {/* Tabs Component */}
-      <Tabs onTabSelect={setSelectedTab} />
-
-      {/* Rendered Content based on selected tab */}
-      <div className="">
-        {renderContent()}
+    <>
+      {/* Sticky Tabs Wrapper */}
+      <div className="sticky top-0 z-50 ">
+        <Tabs onTabSelect={setSelectedTab} />
       </div>
-    </div>
+
+      {/* Rendered Content */}
+      <div className="p-4">{renderContent()}</div>
+    </>
   );
 };
 

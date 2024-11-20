@@ -132,7 +132,7 @@ const InfluencerTable = ({ filters }: InfluencerTableProps) => {
                 alt="Profile"
                 className="rounded-full"
               />
-              <div className="absolute top-4 left-[132px]">
+              <div className="absolute top-4 left-[24px] md:left-[132px]">
                 <BsCheckCircleFill className="text-blue-500 w-4 h-4" />
               </div>
               <span className="text-[20px] text-black dark:text-white">

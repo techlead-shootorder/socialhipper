@@ -7,7 +7,15 @@ import { AiOutlineDown } from "react-icons/ai";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-type Tab = "overview" | "projections" | "engagement" | "media" | "influencer" | "social";
+type Tab =
+  | "overview"
+  | "projections"
+  | "engagement"
+  | "media"
+  | "influencer"
+  | "social";
+
+type SocialMedia = "instagram" | "twitter" | "linkedin" | "youtube";
 
 interface TabsProps {
   onTabSelect: (tab: Tab) => void;
@@ -16,6 +24,13 @@ interface TabsProps {
 const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
   const [selectedTab, setSelectedTab] = useState<Tab>("overview");
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  const [selectedSocialMedia, setSelectedSocialMedia] =
+    useState<SocialMedia>("instagram");
+  console.log(selectedSocialMedia);
+
+  const handleSocialMediaClick = (media: SocialMedia) => {
+    setSelectedSocialMedia(media);
+  };
 
   const handleTabClick = (tab: Tab) => {
     setSelectedTab(tab);
@@ -26,37 +41,70 @@ const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const socialButtonClass = (media: SocialMedia) =>
+    `flex items-center gap-2 rounded-[15px] px-4 py-2 ${
+      selectedSocialMedia === media
+        ? "bg-[#FF4500] text-white"
+        : "bg-gray-200 text-black"
+    } hover:bg-white hover:text-black`;
   return (
-    <div className="md:flex md:items-center md:flex-wrap md:justify-between p-4 mt-12 rounded-lg bg-white md:mx-20 dark:bg-[#2E2B2B] relative space-y-4 md:space-y-0 md:space-x-4">
+    <div
+      className="md:flex md:items-center md:flex-wrap md:justify-between p-4 mt-12 rounded-lg bg-white md:mx-20 dark:bg-[#2E2B2B] space-y-4 md:space-y-0 md:space-x-4"
+      style={{ zIndex: 1000000 }}
+    >
       {/* Show Social Media Icons only on Mobile */}
       <div className="flex space-x-8 flex-wrap md:hidden">
-        <Button variant="orange" className="flex items-center rounded-[15px]">
+        <Button
+          className={socialButtonClass("instagram")}
+          onClick={() => handleSocialMediaClick("instagram")}
+        >
           <FaInstagram />
         </Button>
-        <Button className="flex items-center gap-2 bg-gray-200 text-black rounded-[15px]">
+        <Button
+          className={socialButtonClass("twitter")}
+          onClick={() => handleSocialMediaClick("twitter")}
+        >
           <FaXTwitter className="text-black" />
         </Button>
-        <Button className="flex items-center gap-2 bg-gray-200 text-black rounded-[15px]">
+        <Button
+          className={socialButtonClass("linkedin")}
+          onClick={() => handleSocialMediaClick("linkedin")}
+        >
           <FaLinkedin className="text-black" />
         </Button>
-        <Button className="flex items-center gap-2 bg-gray-200 text-black rounded-[15px]">
+        <Button
+          className={socialButtonClass("youtube")}
+          onClick={() => handleSocialMediaClick("youtube")}
+        >
           <FaYoutube className="text-black" />
         </Button>
       </div>
 
       {/* Hide Social Media Icons on Desktop */}
       <div className="hidden md:flex md:flex-wrap gap-2">
-        <Button variant="orange" className="flex items-center rounded-[15px] ">
+        <Button
+          className={socialButtonClass("instagram")}
+          onClick={() => handleSocialMediaClick("instagram")}
+        >
           <FaInstagram className="mr-2" /> Instagram
         </Button>
-        <Button className="flex items-center gap-2 bg-gray-200 text-black rounded-[15px]">
-          <FaXTwitter className="text-black" /> Twitter
+        <Button
+          className={socialButtonClass("twitter")}
+          onClick={() => handleSocialMediaClick("twitter")}
+        >
+          <FaXTwitter className="text-black mr-2" /> Twitter
         </Button>
-        <Button className="flex items-center gap-2 bg-gray-200 text-black rounded-[15px]">
-          <FaLinkedin className="text-black" /> LinkedIn
+        <Button
+          className={socialButtonClass("linkedin")}
+          onClick={() => handleSocialMediaClick("linkedin")}
+        >
+          <FaLinkedin className="text-black mr-2" /> LinkedIn
         </Button>
-        <Button className="flex items-center gap-2 bg-gray-200 text-black rounded-[15px]">
-          <FaYoutube className="text-black" /> YouTube
+        <Button
+          className={socialButtonClass("youtube")}
+          onClick={() => handleSocialMediaClick("youtube")}
+        >
+          <FaYoutube className="text-black mr-2" /> YouTube
         </Button>
       </div>
 
@@ -64,28 +112,36 @@ const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
       <div className="hidden md:flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-4">
         <Button
           variant="custom"
-          className={`font-bold ${selectedTab === "overview" ? "text-orange-600" : ""}`}
+          className={`font-bold ${
+            selectedTab === "overview" ? "text-orange-600" : ""
+          }`}
           onClick={() => handleTabClick("overview")}
         >
           Overview
         </Button>
         <Button
           variant="custom"
-          className={`font-bold ${selectedTab === "projections" ? "text-orange-600" : ""}`}
+          className={`font-bold ${
+            selectedTab === "projections" ? "text-orange-600" : ""
+          }`}
           onClick={() => handleTabClick("projections")}
         >
           Future Projections
         </Button>
         <Button
           variant="custom"
-          className={`font-bold ${selectedTab === "engagement" ? "text-orange-600" : ""}`}
+          className={`font-bold ${
+            selectedTab === "engagement" ? "text-orange-600" : ""
+          }`}
           onClick={() => handleTabClick("engagement")}
         >
           Engagement Stats
         </Button>
         <Button
           variant="custom"
-          className={`font-bold ${selectedTab === "media" ? "text-orange-600" : ""}`}
+          className={`font-bold ${
+            selectedTab === "media" ? "text-orange-600" : ""
+          }`}
           onClick={() => handleTabClick("media")}
         >
           Media Stats
@@ -126,7 +182,9 @@ const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
           <SwiperSlide>
             <Button
               variant="custom"
-              className={`font-bold ${selectedTab === "overview" ? "text-orange-600" : ""}`}
+              className={`font-bold ${
+                selectedTab === "overview" ? "text-orange-600" : ""
+              }`}
               onClick={() => handleTabClick("overview")}
             >
               Overview
@@ -135,7 +193,9 @@ const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
           <SwiperSlide>
             <Button
               variant="custom"
-              className={`font-bold ${selectedTab === "projections" ? "text-orange-600" : ""}`}
+              className={`font-bold ${
+                selectedTab === "projections" ? "text-orange-600" : ""
+              }`}
               onClick={() => handleTabClick("projections")}
             >
               Future Projections
@@ -144,7 +204,9 @@ const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
           <SwiperSlide>
             <Button
               variant="custom"
-              className={`font-bold ${selectedTab === "engagement" ? "text-orange-600" : ""}`}
+              className={`font-bold ${
+                selectedTab === "engagement" ? "text-orange-600" : ""
+              }`}
               onClick={() => handleTabClick("engagement")}
             >
               Engagement Stats
@@ -153,7 +215,9 @@ const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
           <SwiperSlide>
             <Button
               variant="custom"
-              className={`font-bold ${selectedTab === "media" ? "text-orange-600" : ""}`}
+              className={`font-bold ${
+                selectedTab === "media" ? "text-orange-600" : ""
+              }`}
               onClick={() => handleTabClick("media")}
             >
               Media Stats
@@ -162,7 +226,9 @@ const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
           <SwiperSlide>
             <Button
               variant="custom"
-              className={`font-bold ${selectedTab === "influencer" ? "text-orange-600" : ""}`}
+              className={`font-bold ${
+                selectedTab === "influencer" ? "text-orange-600" : ""
+              }`}
               onClick={() => handleTabClick("influencer")}
             >
               Influencer Stats
@@ -171,7 +237,9 @@ const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
           <SwiperSlide>
             <Button
               variant="custom"
-              className={`font-bold ${selectedTab === "social" ? "text-orange-600" : ""}`}
+              className={`font-bold ${
+                selectedTab === "social" ? "text-orange-600" : ""
+              }`}
               onClick={() => handleTabClick("social")}
             >
               Social Stats

@@ -14,10 +14,10 @@ const Banner = () => {
     >
       {/* Centered Content */}
       <div className="relative flex flex-col items-center w-full max-w-4xl px-4 sm:px-0">
-        <h1 className="text-2xl sm:text-[60px] font-bold text-center text-gray-900 dark:text-gray-100 mb-4 sm:mb-6 leading-tight sm:leading-[90px] mt-4 sm:mt-20">
+        <h1 className="text-2xl sm:text-[60px] font-bold text-center text-gray-900 dark:text-gray-700 mb-4 sm:mb-6 leading-tight sm:leading-[90px] mt-4 sm:mt-20">
           Powerful In-Depth<br /> Analytics for Instagram
         </h1>
-        <p className="text-sm sm:text-base text-center text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-md">
+        <p className="text-sm sm:text-base text-center text-gray-600 dark:text-gray-700 mb-6 sm:mb-8 max-w-md">
           Sociallyser offers powerful in-depth analytics and actionable insights
           for brands, influencers, and agencies.
         </p>

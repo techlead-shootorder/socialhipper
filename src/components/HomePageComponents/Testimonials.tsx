@@ -163,21 +163,21 @@ const TestimonialSection = () => {
                       <FaUserFriends className="text-black" />
                       {testimonial.subscribers}
                     </p>
-                    <p>Subscribers</p>
+                    <p className="dark:text-black">Subscribers</p>
                   </div>
                   <div className="flex flex-col items-center">
                     <p className="text-sm font-semibold text-black flex items-center gap-3">
                       <FaStar className="text-black" />
                       {testimonial.shScore}
                     </p>
-                    <p>SH Score</p>
+                    <p className="dark:text-black">SH Score</p>
                   </div>
                   <div className="flex flex-col items-center">
                     <p className="text-sm font-semibold text-black flex items-center gap-3">
                       <FaEye className="text-black" />
                       {testimonial.avgViews}
                     </p>
-                    <p>Avg Views</p>
+                    <p className="dark:text-black">Avg Views</p>
                   </div>
                 </div>
               </div>
@@ -229,21 +229,21 @@ const TestimonialSection = () => {
                       <FaUserFriends className="text-black" />
                       {testimonial.subscribers}
                     </p>
-                    <p>Subscribers</p>
+                    <p className="dark:text-black">Subscribers</p>
                   </div>
                   <div className="flex flex-col items-center">
                     <p className="text-sm font-semibold text-black flex items-center gap-3">
                       <FaStar className="text-black" />
                       {testimonial.shScore}
                     </p>
-                    <p>SH Score</p>
+                    <p className="dark:text-black">SH Score</p>
                   </div>
                   <div className="flex flex-col items-center">
                     <p className="text-sm font-semibold text-black flex items-center gap-3">
                       <FaEye className="text-black" />
                       {testimonial.avgViews}
                     </p>
-                    <p>Avg Views</p>
+                    <p className="dark:text-black">Avg Views</p>
                   </div>
                 </div>
               </div>

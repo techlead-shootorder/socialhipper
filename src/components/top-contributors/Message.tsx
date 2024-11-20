@@ -4,7 +4,7 @@ const Message = () => {
   return (
     <div className="bg-white md:mx-20 py-8 mt-5 dark:bg-[#2E2B2B] rounded-[15px] text-center">
       <div className="p-4">
-        <h3 className="font-bold text-black text-[48px] leading-[58px] dark:text-white uppercase max-w-[900px] mx-auto">
+        <h3 className="font-bold text-black text-[30px] md:text-[48px] leading-[38px] md:leding-[58px] dark:text-white uppercase max-w-[900px] mx-auto">
           Top <span className="text-[#FF4500]">100 Celebrity</span> Influencers
         </h3>
       </div>

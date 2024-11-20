@@ -66,17 +66,17 @@ const HashTags = () => {
               />
               <div className="grid grid-cols-2 w-full gap-4 items-center">
                 <div>
-                  <p className="text-sm text-gray-800 mb-2">{content.text}</p>
-                  <div className="text-xs text-gray-500">{content.date}</div>
+                  <p className="text-sm text-gray-800 mb-2 dark:text-white">{content.text}</p>
+                  <div className="text-xs text-gray-500 dark:text-white">{content.date}</div>
                 </div>
                 <div className="flex items-center justify-end space-x-6">
-                  <div className="flex items-center space-x-3 text-gray-600">
+                  <div className="flex items-center space-x-3 text-gray-600 dark:text-white">
                     <AiOutlineLike />
                     <span className="font-semibold text-sm">
                       {content.likes}
                     </span>
                   </div>
-                  <div className="flex items-center space-x-3 text-gray-600">
+                  <div className="flex items-center space-x-3 text-gray-600 dark:text-white">
                     <PiChatCircleText />
                     <span className="font-semibold text-sm">
                       {content.comments}
@@ -96,7 +96,7 @@ const HashTags = () => {
           {hashtags.map((tag, index) => (
             <div key={index} className="text-sm text-gray-800">
               <span className="font-semibold text-red-500">{tag.hashtag}</span>
-              <div className="text-xs text-gray-600 mt-1">
+              <div className="text-xs text-gray-600 dark:text-white mt-1">
                 +{tag.likes} likes <br />+{tag.comments} comments
               </div>
             </div>
@@ -109,9 +109,9 @@ const HashTags = () => {
         <h2 className="text-lg font-semibold mb-4">Best Performing @mention</h2>
         <div className="space-y-2">
           {mentions.map((mention, index) => (
-            <div key={index} className="text-sm text-gray-800">
+            <div key={index} className="text-sm text-gray-800 ">
               <span className="font-semibold text-red-500">{mention.mention}</span>
-              <div className="text-xs text-gray-600 mt-1">
+              <div className="text-xs text-gray-600 dark:text-white mt-1">
                 +{mention.likes} likes <br />+{mention.comments} comments
               </div>
             </div>

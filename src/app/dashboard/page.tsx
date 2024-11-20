@@ -1,4 +1,4 @@
-import StatsSection from "@/components/dashboard-chart/Chart";
+
 import ParentComponent from "@/components/dashboard-tabs/TabsFinalData";
 import Summary from "@/components/Faqs/Summary";
 import ImportantUpdate from "@/components/ImportantUpdate/ImportantUpdate";
@@ -12,7 +12,7 @@ const page = () => {
       <ImportantUpdate />
       <ParentComponent/>
       <StatsCards />
-      <StatsSection />
+      
       <HashTags />
       <Summary/>
     </div>
