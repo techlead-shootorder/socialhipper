@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import pool from "../../../utils/db";
+import pool from "@/utils/db";
 import {
   InstagramUser,
   UpdateInstagramUserDTO,
-} from "../../../types/instagram-user";
+} from "@/types/instagram-user";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<ApiResponse<InstagramUser>>
+  res: NextApiResponse<InstagramUser | { error: string }>
 ) {
   const { id } = req.query;
 
@@ -27,7 +27,7 @@ export default async function handler(
           return res.status(404).json({ error: "User not found" });
         }
 
-        return res.status(200).json({ data: users[0] });
+        return res.status(200).json(users[0]);
 
       case "PUT":
         const updateData: UpdateInstagramUserDTO = req.body;
@@ -55,7 +55,7 @@ export default async function handler(
           [id]
         );
 
-        return res.status(200).json({ data: updatedUsers[0] });
+        return res.status(200).json(updatedUsers[0]);
 
       case "DELETE":
         const [result] = await pool.query<mysql.ResultSetHeader>(
