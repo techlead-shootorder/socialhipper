@@ -12,7 +12,6 @@ const page = () => {
       <ImportantUpdate />
       <ParentComponent/>
       <StatsCards />
-      
       <HashTags />
       <Summary/>
     </div>

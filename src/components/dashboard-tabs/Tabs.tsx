@@ -15,21 +15,23 @@ type Tab =
   | "influencer"
   | "social";
 
-type SocialMedia = "instagram" | "twitter" | "linkedin" | "youtube";
+ type SocialMedia = "instagram" | "twitter" | "linkedin" | "youtube";
 
 interface TabsProps {
   onTabSelect: (tab: Tab) => void;
+  onSocialMediaSelect: (media: SocialMedia) => void; // New Prop
 }
 
-const Tabs: React.FC<TabsProps> = ({ onTabSelect }) => {
+const Tabs: React.FC<TabsProps> = ({ onTabSelect ,onSocialMediaSelect}) => {
   const [selectedTab, setSelectedTab] = useState<Tab>("overview");
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const [selectedSocialMedia, setSelectedSocialMedia] =
     useState<SocialMedia>("instagram");
-  console.log(selectedSocialMedia);
 
+  
   const handleSocialMediaClick = (media: SocialMedia) => {
     setSelectedSocialMedia(media);
+    onSocialMediaSelect(media); // Pass data to Parent
   };
 
   const handleTabClick = (tab: Tab) => {

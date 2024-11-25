@@ -4,14 +4,17 @@ import Tabs from "./Tabs";
 import UserProfile from "../user-profile/Profile";
 import StatsSection from "../dashboard-chart/Chart";
 
+
+type SocialMedia = "instagram" | "twitter"  | "youtube" | "linkedin" ;
 const ParentComponent = () => {
   const [selectedTab, setSelectedTab] = useState("overview");
+  const [selectedSocialMedia, setSelectedSocialMedia] = useState<SocialMedia>("instagram");
 
   // Content render function based on selected tab
   const renderContent = () => {
     switch (selectedTab) {
       case "overview":
-        return <UserProfile />;
+        return <UserProfile selectedPlatform={selectedSocialMedia} />;
       case "projections":
         return <StatsSection />;
       case "engagement":
@@ -31,7 +34,7 @@ const ParentComponent = () => {
     <>
       {/* Sticky Tabs Wrapper */}
       <div className="sticky top-0 z-50 ">
-        <Tabs onTabSelect={setSelectedTab} />
+        <Tabs onTabSelect={setSelectedTab} onSocialMediaSelect={setSelectedSocialMedia}/>
       </div>
 
       {/* Rendered Content */}

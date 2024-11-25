@@ -10,27 +10,87 @@ import { AiOutlineDown, AiOutlineSwap } from "react-icons/ai";
 import { SlCalender } from "react-icons/sl";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { IoLinkOutline } from "react-icons/io5";
 import { MdPerson } from "react-icons/md";
+import { IoLinkOutline } from "react-icons/io5";
 
-const UserProfile = () => {
+// Define platform types
+type SocialMedia = "instagram" | "twitter" | "linkedin" | "youtube";
+
+// Default data for each platform
+const platformData = {
+  instagram: {
+    profileImage: "/images/profile.jpeg",
+    name: "Rajat Jain",
+    role: "Instagram Influencer | Travel Blogger",
+    description: "Adventurer & Storyteller | 1M+ Followers",
+    followers: 1500,
+    posts: 210,
+    engagement: 12.5,
+    trackedSince: "Sept 20",
+  },
+  twitter: {
+    profileImage: "/images/profile.jpeg",
+    name: "Rajat Jain",
+    role: "Tech Enthusiast | Thought Leader",
+    description: "Tech updates, trends & thoughts.",
+    followers: 1200,
+    posts: 500,
+    engagement: 8.9,
+    trackedSince: "Sept 20",
+  },
+  linkedin: {
+    profileImage: "/images/profile.jpeg",
+    name: "Rajat Jain",
+    role: "Digital Marketing Specialist",
+    description: "Connect for industry insights & opportunities.",
+    followers: 850,
+    posts: 80,
+    engagement: 15.3,
+    trackedSince: "Sept 20",
+  },
+  youtube: {
+    profileImage: "/images/profile.jpeg",
+    name: "Rajat Jain",
+    role: "Content Creator | Educator",
+    description: "Tech tutorials, reviews & educational content.",
+    followers: 2500,
+    posts: 120,
+    engagement: 20.1,
+    trackedSince: "Sept 20",
+  },
+};
+
+// Component Props
+interface UserProfileProps {
+  selectedPlatform: SocialMedia;
+}
+
+const UserProfile: React.FC<UserProfileProps> = ({ selectedPlatform }) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
+
+  // Fetch current platform data
+  const data = platformData[selectedPlatform];
 
   return (
     <div className="dark:bg-[#2E2B2B] bg-white p-6 relative py-16 rounded-[25px] md:mx-20 mt-16 shadow-md flex flex-col md:flex-row gap-6 md:gap-12">
       {/* Top Corner Buttons */}
       <div className="absolute top-[-36px] right-10 flex gap-2">
-        <Button variant="ghost" className="bg-[#E1E1E1] dark:bg-black rounded-b-none">
+        <Button
+          variant="ghost"
+          className="bg-[#E1E1E1] dark:bg-black rounded-b-none"
+        >
           <AiOutlineSwap />
           Compare
         </Button>
 
-        {/* Calendar Date Picker */}
         <DatePicker
           selected={selectedDate}
           onChange={(date) => setSelectedDate(date)}
           customInput={
-            <Button variant="ghost" className="bg-[#E1E1E1] dark:bg-black rounded-b-none">
+            <Button
+              variant="ghost"
+              className="bg-[#E1E1E1] dark:bg-black rounded-b-none"
+            >
               <SlCalender />
               Last 30 Days <AiOutlineDown className="ml-1" />
             </Button>
@@ -47,7 +107,7 @@ const UserProfile = () => {
         {/* Profile Image and Info */}
         <div className="flex items-center justify-start gap-12 relative">
           <Image
-            src="/images/profile.jpeg"
+            src={data.profileImage}
             width={80}
             height={80}
             alt="Profile"
@@ -58,23 +118,21 @@ const UserProfile = () => {
             <BsCheckCircleFill className="text-blue-500 w-6 h-6" />
           </div>
           <div>
-            <h2 className="text-[32px] font-bold flex items-center">
-              Rajat Jain{" "}
-              <span className="ml-2">
-                <img src="/images/start.svg" alt="svg" />
-              </span>
-            </h2>
+            <h2 className="text-[32px] font-bold">{data.name}</h2>
             <p className="text-sm text-black font-semibold mt-1 mb-2 dark:text-white">
-              Digital Marketer | Content Creator
+              {data.role}
             </p>
             <p className="text-xs text-gray-500 dark:text-white">
-              Founder @shortcoder | #DigitalMarketing Consultant, #SocialMedia
-              Expert, #Influencer
+              {data.description}
+            </p>
+            <p className="text-xs text-gray-400 mt-2 dark:text-gray-300">
+              Tracked since {data.trackedSince}
             </p>
           </div>
         </div>
-        {/* Social Media Icons */}
-        <div className="flex gap-7 flex-wrap">
+
+        {/* Additional Buttons */}
+        <div className="flex gap-2 flex-wrap justify-between">
           <div className="flex gap-4 text-[#4F4F4F]">
             <div className="p-2 rounded-full border-[1px] border-[#4F4F4F] bg-transparent dark:bg-gray-200">
               <MdPerson size={20} />
@@ -93,7 +151,7 @@ const UserProfile = () => {
 
       {/* Right Section */}
       <div className="md:w-3/5 flex flex-col justify-between">
-        {/* Tracking Info and Claim Button */}
+        {/* Stats Cards */}
         <div className="flex justify-between items-center">
           <p className="text-sm text-black dark:text-white leading-[14.52px] font-[400] flex items-center gap-2">
             <img src="/images/square.svg" alt="svg square" />
@@ -103,45 +161,52 @@ const UserProfile = () => {
             <HiOutlineLockOpen /> Claim
           </Button>
         </div>
-
-        {/* Stats Cards */}
         <div className="flex gap-4 mt-4 flex-wrap md:flex-nowrap">
-          {/* Followers */}
-          <div className="flex-1 p-4 dark:bg-[#1A1919] shadow-md text-left rounded-xl">
-            <div className="flex items-center justify-start gap-2">
-              <p className="text-[32px] font-bold">
-                561{" "}
-                <span className="text-[16px] text-green-500">+1 (0.2%)</span>
-              </p>
-            </div>
-            <p className="text-md text-[#4F4F4F] mt-4 dark:text-white font-bold flex items-center">
-              <RiGroupLine className="mr-3" size={24} /> Followers
-            </p>
-          </div>
-          {/* Posts */}
-          <div className="flex-1 p-4 dark:bg-[#1A1919] shadow-md text-left rounded-xl">
-            <div className="flex items-center justify-start gap-2">
-              <p className="text-[32px] font-bold">
-                153{" "}
-                <span className="text-[16px] text-green-500">+1 (0.2%)</span>
-              </p>
-            </div>
-            <p className="text-md text-[#4F4F4F] mt-4 dark:text-white font-bold flex items-center">
-              <BiMessageAltMinus className="mr-3" size={24} /> Posts
-            </p>
-          </div>
-          {/* Engagement */}
-          <div className="flex-1 p-4 dark:bg-[#1A1919] shadow-md rounded-xl text-left">
-            <div className="flex items-center justify-start gap-2">
-              <p className="text-[32px] font-bold">
-                14.71%{" "}
-                <span className="text-[16px] text-green-500">+1 (0.2%)</span>
-              </p>
-            </div>
-            <p className="text-md text-[#4F4F4F] mt-4 dark:text-white font-bold flex items-center">
-              <RiGroupLine className="mr-3" size={24} /> Engagement
-            </p>
-          </div>
+          <Card
+            title={
+              selectedPlatform === "instagram"
+                ? "Followers"
+                : selectedPlatform === "twitter"
+                ? "Followers"
+                : selectedPlatform === "linkedin"
+                ? "Connections"
+                : selectedPlatform === "youtube"
+                ? "Subscribers"
+                : "Followers"
+            }
+            count={data.followers}
+            icon={<RiGroupLine />}
+          />
+          <Card
+            title={
+              selectedPlatform === "instagram"
+                ? "Posts"
+                : selectedPlatform === "twitter"
+                ? "Tweets"
+                : selectedPlatform === "linkedin"
+                ? "Articles"
+                : selectedPlatform === "youtube"
+                ? "Videos"
+                : "Posts"
+            }
+            count={data.posts}
+            icon={<BiMessageAltMinus />}
+          />
+          <Card
+            title={
+              selectedPlatform === "instagram"
+                ? "Engagement Rate"
+                : selectedPlatform === "twitter"
+                ? "Engagement Rate"
+                : selectedPlatform === "linkedin"
+                ? "Engagement Rate"
+                : selectedPlatform === "youtube"
+                ? "View Rate"
+                : "Engagement"
+            }
+            count={`${data.engagement}%`}
+            icon={<BiMessageAltMinus />}
+          />
         </div>
 
         {/* Compare Last 30 Days and Download Button */}
@@ -151,6 +216,7 @@ const UserProfile = () => {
               className="mr-2 w-8 h-8"
               style={{ width: "32px", height: "32px" }}
             />
+            Compare Last 30 Days
           </Button>
         </div>
 
@@ -162,5 +228,25 @@ const UserProfile = () => {
     </div>
   );
 };
+
+// Stats Card Component
+const Card = ({
+  title,
+  count,
+  icon,
+}: {
+  title: string;
+  count: number | string;
+  icon: React.ReactNode;
+}) => (
+  <div className="flex-1 p-4 dark:bg-[#1A1919] shadow-md text-left rounded-xl">
+    <div className="flex items-center justify-start gap-2">
+      <p className="text-[32px] font-bold">{count}</p>
+    </div>
+    <p className="text-md text-[#4F4F4F] mt-4 dark:text-white font-bold flex items-center">
+      {icon} {title}
+    </p>
+  </div>
+);
 
 export default UserProfile;

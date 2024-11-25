@@ -1,5 +1,7 @@
+"use client"
 import Image from "next/image";
 import React from "react";
+// import SearchResults from "../SearchResult/SearchResult";
 
 const Banner = () => {
   return (
@@ -33,6 +35,9 @@ const Banner = () => {
           <button className="absolute right-2 top-1/2 transform -translate-y-1/2 px-4 sm:px-8 py-2 bg-red-500 text-white font-semibold rounded-full hover:bg-red-600 focus:ring-2 focus:ring-red-500">
             Find
           </button>
+        </div>
+        <div className="s">
+        {/* <SearchResults /> */}
         </div>
 
         {/* Foreground Analytics Image */}
