@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import React from "react";
-// import SearchResults from "../SearchResult/SearchResult";
+import SearchResults from "../SearchResult/SearchResult";
 
 const Banner = () => {
   return (
@@ -11,7 +11,6 @@ const Banner = () => {
         backgroundImage: "url(/images/background.png)", // Set background image
         backgroundSize: "cover", // Cover the container without distortion
         backgroundPosition: "center", // Center the image
-      
       }}
     >
       {/* Centered Content */}
@@ -37,7 +36,7 @@ const Banner = () => {
           </button>
         </div>
         <div className="s">
-        {/* <SearchResults /> */}
+        <SearchResults />
         </div>
 
         {/* Foreground Analytics Image */}
